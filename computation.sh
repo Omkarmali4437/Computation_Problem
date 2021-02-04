@@ -24,3 +24,10 @@ for i in ${!computation[@]}
 do
 	echo $i " : " ${computation[$i]}
 done
+
+counter=1
+for k in ${!computation[@]}
+do
+	computation_array[counter++]=${computation[$k]}
+done
+echo ${computation_array[@]}
