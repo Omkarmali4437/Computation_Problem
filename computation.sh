@@ -32,8 +32,15 @@ do
 done
 echo "Before sorting: " ${computation_array[@]}
 
-echo "After sorting: "
+echo "After sorting in ascending order: "
 for j in ${!computation[@]}
 do
 	echo $j " : " ${computation[$j]}
 done | sort -n -k3
+
+echo "After sorting in descending order: "
+for h in ${!computation[@]}
+do
+        echo $h " : " ${computation[$h]}
+done | sort -nr -k3
+
