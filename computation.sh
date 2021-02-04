@@ -12,3 +12,6 @@ echo $first_computation
 second_computation=`echo - | awk '{printf "%.2f\n",'$a*$b+$c'}'`
 echo $second_computation
 
+third_computation=`echo - | awk '{printf "%.2f\n",'$c+$a/$b'}'`
+echo $third_computation
+
