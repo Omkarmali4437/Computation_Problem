@@ -30,4 +30,10 @@ for k in ${!computation[@]}
 do
 	computation_array[counter++]=${computation[$k]}
 done
-echo ${computation_array[@]}
+echo "Before sorting: " ${computation_array[@]}
+
+echo "After sorting: "
+for j in ${!computation[@]}
+do
+	echo $j " : " ${computation[$j]}
+done | sort -n -k3
