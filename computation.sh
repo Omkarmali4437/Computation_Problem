@@ -7,14 +7,20 @@ read -p "Enter second number: " b;
 read -p "Enter third number: " c;
 
 first_computation=`echo - | awk '{printf "%.2f\n",'$a+$b*$c'}'`
-echo $first_computation
 
 second_computation=`echo - | awk '{printf "%.2f\n",'$a*$b+$c'}'`
-echo $second_computation
 
 third_computation=`echo - | awk '{printf "%.2f\n",'$c+$a/$b'}'`
-echo $third_computation
 
 fourth_computation=`echo - | awk '{printf "%.2f\n",'$a%$b+$c'}'`
-echo $fourth_computation
 
+declare -A computation
+computation[[a+b*c]]=$first_computation
+computation[[a*b+c]]=$second_computation
+computation[[c+a/b]]=$third_computation
+computation[[a%b+c]]=$fourth_computation
+
+for i in ${!computation[@]}
+do
+	echo $i " : " ${computation[$i]}
+done
